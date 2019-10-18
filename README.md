@@ -1,4 +1,4 @@
-# Structs and Classes lab
+ # Structs and Classes lab
 
 Fork and clone this repo. On your fork, answer and commit the follow questions. When you are finished, submit the link to your repo on Canvas.
 
@@ -24,10 +24,16 @@ fred.name = "Brick"
 fred.weight = 999.2
 fred.homePlanet = "Mars"
 ```
+Answer: Only fred.name and fred.weight will run. fred.homePlanet will not because homePlanet is a constant.
 
 Fix the class definition for `Giant` in the space below so that it **does** work:
-
-
+```swift
+class Giant {
+ var name: String = "Fred"
+ var weight: Double = 340.0
+ var homePlanet: String = "Earth"
+}
+```
 ## Question 2
 
 Take a look at this struct that represents an alien:
@@ -48,9 +54,12 @@ bilbo.name = "Jake"
 bilbo.height = 1.42
 bilbo.homePlanet = "Saturn"
 ```
+Answer: it will not run because bilbo is a constant, unmutable. We need to change let to var.
 
 Change the declaration of `bilbo` so that the above three lines of code **do** work:
-
+```swift
+let bilbo = Alien(name: "Bilbo", height: 1.67, homePlanet: "Venus")
+```
 
 ## Question 3
 
@@ -64,7 +73,8 @@ jason.name = "Jason"
 ```
 
 What will the value of `edgar.name` be after those three lines of code are run? What will the value of `jason.name` be? Why?
-
+Answer:
+edgar.name will print "Jason". jason.name will print "Jason".
 
 ## Question 4
 
@@ -77,7 +87,7 @@ charlesFromJupiter.homePlanet = "Jupiter"
 ```
 
 What will the value of `charles.homePlanet` be after the above code run? What about the value of `charlesFromJupiter.homePlanet`? Why?
-
+Answer: charles.homePlanet will still print "Pluto" and charlesFromJupiter.homePlanet will be Jupiter because Alien is a struct, which only creates a copy instead of overriding original code.
 
 ## Question 5
 
@@ -99,9 +109,22 @@ struct BankAccount {
 ```
 
 Does this code work? Why or why not?
-
+Answer: It will not run because within the methods in the struct will need to iterate through self.balance.
 Fix the `BankAccount` struct so it does work.
+```swift
+struct BankAccount {
+ var owner: String
+ var balance: Double
 
+ func deposit(_ amount: Double) {
+ self.balance += amount
+ }
+
+ func withdraw(_ amount: Double) {
+ self.balance -= amount
+ }
+}
+```
 Given the code below (which should incorporate any fixes you made):
 
 ```swift
@@ -111,15 +134,44 @@ joeAccount.withdraw(50.0)
 ```
 
 What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why?
-
+Answer:
+50.0 because the withdraw function will deduct from the balance amount.
 
 ## Question 6
 
 a. Write a struct called `Person` that has 3 properties of type `String`: a first name, a last name and a middle name. Have the middle name be optional. Create 2 instances of a `Person`, one with a middle name and one without. Print one of their first names.
+Answer:
+```swift
+struct Person{
+    var firstName : String
+    var middleName : String?
+    var lastName : String
+}
 
+let patricia = Person(firstName: "Patricia", middleName: "Elena", lastName: "Grullon")
+
+let luna = Person(firstName: "Luna", lastName: "Grullon")
+
+print(luna.firstName)
+
+print(patricia.firstName)
+```
 
 b. Write a method in `Person` called `fullName` that will return a formatted string of an instance's full name. Call this method on both the instances you created in part a.
-
+```swift
+struct Person{
+    var firstName : String
+    var middleName : String?
+    var lastName : String
+    
+    func fullName(firstName: String, middleName: String?, lastName: String) -> String{
+    self.firstName = firstName
+    self.middleName = middleName as? String ?? "no middle name"
+    self.lastName = lastName
+    let 
+}
+}
+```
 
 ## Question 7
 
