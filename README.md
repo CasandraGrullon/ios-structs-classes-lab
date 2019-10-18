@@ -209,7 +209,14 @@ struct Book {
 
 ```swift
 class Dog {
+var name : String = "dog"
+var breed: String = "unknown"
+var mood: String = "calm"
+var hungry : Bool = false
 
+func playFetch() {
+    
+}
 }
 ```
 
