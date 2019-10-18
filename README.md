@@ -165,10 +165,7 @@ struct Person{
     var lastName : String
     
     func fullName(firstName: String, middleName: String?, lastName: String) -> String{
-    self.firstName = firstName
-    self.middleName = middleName as? String ?? "no middle name"
-    self.lastName = lastName
-    let 
+    if self.contains()
 }
 }
 ```
@@ -176,10 +173,37 @@ struct Person{
 ## Question 7
 
 a. Create a struct called `Book` that has properties `title`, `author` and `rating`, of type `String`, `String`, and `Double` respectively. Create some instances of `Book`.
+```swift
+struct Book {
+var title: String = ""
+var author: String = ""
+var rating: Double = 0
+}
+let howlsMovingCastle = Book(title: "Howl's Moving Castle", author: "Diana Wynne Jones", rating: 10 )
 
+let theBlindAssassin = Book(title: "The Blind Assassin", "Margrett Atwood", rating: 9.5 )
+```
 
 b. Add a method to `Book` called `isGood` that returns `true` if its rating is greater than or equal to 7
-
+```swift
+struct Book {
+    var title: String = ""
+    var author: String = ""
+    var rating: Double = 0
+    
+    func isGood(rating: Double) -> Bool {
+        var isgood = false
+        if self.rating >= 7 {
+            print("\(title) is a good book. Highly recommend it!")
+            isgood = true
+        } else {
+            print("\(title) is not a good book.. skip it")
+            isgood = false
+        }
+        return isgood
+    }
+}
+```
 
 ## Question 8
 
