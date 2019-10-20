@@ -159,15 +159,7 @@ print(patricia.firstName)
 
 b. Write a method in `Person` called `fullName` that will return a formatted string of an instance's full name. Call this method on both the instances you created in part a.
 ```swift
-struct Person{
-    var firstName : String
-    var middleName : String?
-    var lastName : String
-    
-    func fullName(firstName: String, middleName: String?, lastName: String) -> String{
-    if self.contains()
-}
-}
+
 ```
 
 ## Question 7
@@ -181,7 +173,7 @@ var rating: Double = 0
 }
 let howlsMovingCastle = Book(title: "Howl's Moving Castle", author: "Diana Wynne Jones", rating: 10 )
 
-let theBlindAssassin = Book(title: "The Blind Assassin", "Margrett Atwood", rating: 9.5 )
+let theBlindAssassin = Book(title: "The Blind Assassin", author: "Margrett Atwood", rating: 9.5 )
 ```
 
 b. Add a method to `Book` called `isGood` that returns `true` if its rating is greater than or equal to 7
@@ -208,15 +200,51 @@ struct Book {
 ## Question 8
 
 ```swift
+//8.a
 class Dog {
 var name : String = "dog"
 var breed: String = "unknown"
 var mood: String = "calm"
 var hungry : Bool = false
 
-func playFetch() {
-    
+//8.b
+func playFetch(mood: String, hungry: Bool) {
+        self.mood = "playful"
+        self.hungry = true
+        print("Ruff!")
 }
+
+//8.c
+func feed(hungry: Bool) {
+    if hungry == true {
+        self.hungry = false
+        print("Woof!")
+    } else {
+        print("The dog doesn't look hungry.")
+    }
+}
+
+//8.d
+func toString() -> String {
+     var array = [String]()
+     var hunger = ""
+     var descript = ""
+     array.append(self.name)
+     array.append(self.breed)
+     array.append(self.mood)
+     
+     if self.hungry == true {
+         hunger = "true"
+         } else {
+             hunger = "false"
+         }
+     array.append(hunger)
+     for str in array {
+         descript = str
+     }
+     return descript
+     }
+    
 }
 ```
 
