@@ -386,7 +386,17 @@ struct RGBColor {
 var red : Double
 var green : Double
 var blue : Double
+}
 
+func Colors(dict:[[String:Double]]) -> [RGBColor] {
+var arrayOfRGB = []
+var red = dict["red"] 
+var blue = dict["blue"]
+var green = dict["green"]
+arrayOfRGB.append(red)
+arrayOfRGB.append(blue)
+arrayOfRGB.append(green)
+return arrayOfRGB
 }
 ```
 
@@ -427,6 +437,16 @@ let dieHardDict: [String: Any] = ["name": "Die Hard",
 ```
 Answer:
 ```swift
+func makeMovie(movieDict: [String:Any] ) -> Movie? {
+guard let name = movieDict["name"] as? String,
+let year = movieDict["year"] as? Int,
+let genre = movieDict["genre"] as? String,
+let cast = movieDict["cast"] as? [String],
+let description = movieDict["description"] as? String else{
+        return nil
+}
+return Movie(name: name, year: year, genre: genre, cast: cast)
+}
 ```
 
 Hint: To use a value type `Any`, you will need to cast it to its expected type.
