@@ -202,6 +202,7 @@ struct Book {
 ```swift
 //8.a
 class Dog {
+static var count = 0
 var name : String = "dog"
 var breed: String = "unknown"
 var mood: String = "calm"
@@ -244,7 +245,12 @@ func toString() -> String {
      }
      return descript
      }
-    
+     
+     //8.e
+     init(name: String) {
+     self.name = name
+     Dog.count +=1
+     }
 }
 ```
 
@@ -317,7 +323,14 @@ F = 1.8 * C + 32
 K = C + 273
 
 a. Make a struct called `FreezingPoint` that has three static properties: `celsius`, `fahrenheit`, and `kelvin`. Give them all values equal to the freezing point of water.
-
+```swift
+// 9a.
+struct FreezingPoint {
+var celsius = 0.0
+var fahrenheit = 32.0
+var kelvin = 273.2
+}
+```
 
 b. Make a struct called `Celsius` that has one property: `celsius`, and two methods `getFahrenheitTemp`, and `getKelvinTemp`. Make the values of `fahrenheit` and `kelvin` correct values, converted from the `celsius` property.
 
@@ -326,6 +339,29 @@ var tenDegreesCelsius = Celsius(celsius: 10.0)
 tenDegreesCelsius.celsius //returns 10.0
 tenDegreesCelsius.getKelvinTemp() //returns 283.0
 tenDegreesCelsius.getFahrenheitTemp() //returns 50.0
+```
+```swift
+// 9b.
+struct Celsius {
+    var celsius = 0.0
+    
+    func getFahrenheitTemp(celsius: Double) -> Double {
+        let tempInF = celsius * 1.8 + 32
+        return tempInF
+    }
+    func getKelvinTemp(celsius: Double) -> Double {
+        let tempInK = celsius + 273
+        return tempInK
+    }
+    // 9.c
+    func isBelowFreezing(celsius: Double) -> Bool {
+        if celsius < 0.0 {
+            return true
+        } else {
+            return false
+        }
+    }
+}
 ```
 
 c. Give the `Celsius` struct a method called `isBelowFreezing` that returns a `Bool` (true if the temperature is below freezing).
