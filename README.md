@@ -381,12 +381,34 @@ let colorDictArray: [[String: Double]] = [["red": 1.0, "green": 0.0, "blue": 0.0
  ["red": 0.2, "green": 0.2, "blue": 0.5],
  ["red": 0.5, "green": 0.1, "blue": 0.9],]
 ```
+```swift
+struct RGBColor {
+var red : Double
+var green : Double
+var blue : Double
+
+}
+```
 
 
 ## Question 11
 
 a. Create a struct called `Movie` that has properties for `name` (`String`), `year` (`Int`), `genre` (`String`), `cast` (`[String]`), and `description` (`String`). Create an instance of your `Movie` class
-
+```swift
+//11a
+struct Movie {
+var name : String
+var year : Int
+var genre : String
+var cast : ([String])
+//11b
+func blurb(){
+print("The \(genre) film, \(name), was released in \(year). It stared \(cast). ")
+}
+}
+//11a
+let myFavoriteMovie = Movie(name: "Kiki's Delivery Service", year: 1989, genre: "Animated" , cast: ["Minami Takayama", "Rei Sakuma", "Kappei Yamaguchi"])
+```
 b. Create an instance method inside `Movie` called `blurb` that returns a formatted string describing the movie.
 
 Ex: "Borat came out in 2006. It was an odd film starring Sacha Baron Cohen as a man named Borat who was visiting America from Kazakhstan."
@@ -402,6 +424,9 @@ let dieHardDict: [String: Any] = ["name": "Die Hard",
  "genre": "action",
  "cast": ["Bruce Willis", "Alan Rickman"],
  "description": "John Mclain saves the day!"]
+```
+Answer:
+```swift
 ```
 
 Hint: To use a value type `Any`, you will need to cast it to its expected type.
